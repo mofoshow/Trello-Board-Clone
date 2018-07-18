@@ -1,10 +1,41 @@
-// This will can combine one or more Reducer functions and export it through Redux's combineReducer helper.
-import { combineReducers } from "redux";
 
-import count from "./counter";
-// import secondCounter from './exampleReducer';
+import { ADD_TICKET, ADD_LIST } from "../constants/ActionTypes";
 
-export default combineReducers({ count });
 
-// Example for combining multiple reducers:
-// export default combineReducers({ count, secondCounter });
+const initialState = {
+    lists: [
+    ]
+};
+
+
+const rootReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case ADD_TICKET:
+        const updatedItems = state.lists.map(list => {
+            if(list.id === action.payload.listId){
+                const key = action.payload.listId;
+                return {
+                    ...list,
+                    tickets: [...list.tickets, {ticketTitle: action.payload.title, ticketId: action.payload.id}]
+                };
+                
+            }
+            return list;
+            
+        });
+            const mashedTogether = {...state, lists: [ ...updatedItems ]  };
+            
+            return mashedTogether;
+        case ADD_LIST:
+            const payload = {...action.payload, tickets : []};
+            const updatedLists = {
+                ...state, lists: [...state.lists, payload]
+            };
+            return updatedLists;
+        default:
+            return state;
+
+    }
+};
+export default rootReducer;
+

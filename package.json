@@ -4,8 +4,11 @@
   "description": "Everything you need to get started with a basic React application",
   "watch": true,
   "dependencies": {
+    "bootstrap": "^4.1.2",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2"
@@ -26,6 +29,7 @@
     "extract-text-webpack-plugin": "2.1.2",
     "file-loader": "^0.11.2",
     "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.6",
     "pre-commit": "^1.2.2",
     "sass-loader": "^6.0.7",
     "uglifyjs-webpack-plugin": "^1.2.5",

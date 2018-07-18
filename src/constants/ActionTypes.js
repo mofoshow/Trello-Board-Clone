@@ -5,8 +5,8 @@
 
 /* eslint-disable */
 
-export const INCREMENT_NUM = "INCREMENT_NUM";
-export const DECREMENT_NUM = "DECREMENT_NUM";
-export const RESET = "RESET";
+
+export const ADD_LIST = "ADD_LIST";
+export const ADD_TICKET = "ADD_TICKET";
 
 /* eslint-enable */

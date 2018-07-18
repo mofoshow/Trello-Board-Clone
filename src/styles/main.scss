@@ -3,6 +3,8 @@
    License: none (public domain)
 */
 
+@import "~bootstrap/scss/bootstrap";
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -58,40 +60,10 @@ body {
   font-size: 36px;
 }
 
-.counter {
-  display: flex;
-  margin: 0 auto;
-  height: 500px;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+li{
+  background-color: blue;
+}
 
-  > div:first-child {
-    font-size: 100px;
-  }
-
-  a {
-    font-size: 16px;
-    text-transform: uppercase;
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .controls {
-    display: flex;
-    flex-direction: row-reverse;
-
-    > div {
-      min-width: 40px;
-      height: 40px;
-      text-align: center;
-      background: #fff;
-      color: #3f51b5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 0 0 5px;
-      cursor: pointer;
-    }
-  }
+.list_input{
+  max-width: 100px;
 }
