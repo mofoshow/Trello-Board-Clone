@@ -41,6 +41,7 @@ class ConnectedNewListInput extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <input
+                    placeholder="Add a new list"
                     autoComplete="off"
                     type="text"
                     className="form-control"

@@ -42,6 +42,7 @@ class ConnectedNewTicketInput extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <input
+                    placeholder="Add a new ticket"
                     autoComplete="off"
                     type="text"
                     className="form-control"
