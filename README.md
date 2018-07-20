@@ -1,10 +1,15 @@
 # React, Redux & Sass Trello Board Clone
 
 A basic Trello board in which you can add your own lists and tickets. 
-This project is a work in progress and so far the board view with multiple lists is implimented. 
+This project is a work in progress.
+
+Current features: 
+Ability to create multiple lists.
+Ability to create multiple tickets within individual lists.
+Drag and drop tickets from one list to another.
 
 Soon to be implimented:
-React Router,
+React Router to allow multiple boards,
 Local Storage Implimentation
 
 
