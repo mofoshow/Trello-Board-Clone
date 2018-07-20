@@ -24,7 +24,7 @@ displayTickets(){
     if(list.id === this.props.listId){
         return(list.tickets.map(ticket => {
           return (
-            <Ticket ticketTitle={ticket.ticketTitle} key={ticket.ticketId}/>
+            <Ticket ticketTitle={ticket.ticketTitle} ticketId={ticket.ticketId} key={ticket.ticketId} listId={this.props.listId}/>
           );
         }));
     }

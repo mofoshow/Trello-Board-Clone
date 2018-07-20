@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import List from "./List";
 
 const mapStateToProps = state => {
-    console.log(state);
     return { lists: state.lists };
 };
 
