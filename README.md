@@ -4,8 +4,8 @@ A basic Trello board in which you can add your own lists and tickets.
 This project is a work in progress and so far the board view with multiple lists is implimented. 
 
 Soon to be implimented:
-Drag and drop capabilities,
-React Router
+React Router,
+Local Storage Implimentation
 
 
 
