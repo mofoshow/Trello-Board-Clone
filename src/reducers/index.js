@@ -1,5 +1,5 @@
 
-import { ADD_TICKET, ADD_LIST, HANDLE_DROP } from "../constants/ActionTypes";
+import { ADD_TICKET, ADD_LIST, REMOVE_TICKET } from "../constants/ActionTypes";
 
 
 const initialState = {
@@ -23,7 +23,7 @@ const rootReducer = (state = initialState, action) => {
             const mashedTogether = { ...state, lists: [...updatedItems] };
             return mashedTogether;
 
-        case HANDLE_DROP:
+        case REMOVE_TICKET:
 
             let removeTicket = state.lists.map(list => {
                 let ticketsToStay = list.tickets.filter(ticket => ticket.ticketId !== action.payload.id);

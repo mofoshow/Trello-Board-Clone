@@ -3,13 +3,13 @@ import React, { Component } from "react";
 import Lists from "./components/Board/Lists";
 import NewListInput from "./components/Board/NewListInput";
 
-import { addTicket, addList, handleDrop } from "../src/actions/listActions";
+import { addTicket, addList, removeTicket } from "../src/actions/listActions";
 
 import store from "./store";
 
 window.store = store;
 window.addTicket = addTicket;
-window.handleDrop = handleDrop;
+window.removeTicket = removeTicket;
 window.addList = addList;
 
 class App extends Component {

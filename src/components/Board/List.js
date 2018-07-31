@@ -8,7 +8,7 @@ import Tickets from "./Tickets";
 const mapDispatchToProps = dispatch => {
     return {
     
-      handleDrop: ticket => dispatch(handleDrop(ticket)),
+      removeTicket: ticket => dispatch(removeTicket(ticket)),
       addTicket: ticket => dispatch(addTicket(ticket))
     };
   };
@@ -25,10 +25,9 @@ class ConnectedList extends React.Component{
     onDrop(event){
         let id = event.dataTransfer.getData("id");
         let title = event.dataTransfer.getData("title");
-        let previouslistId = event.dataTransfer.getData("listId");
         const listId = this.props.listId;
         
-        this.props.handleDrop({previouslistId , id});
+        this.props.removeTicket({ id});
         this.props.addTicket({title, listId , id}); 
     }
 
@@ -46,8 +45,8 @@ class ConnectedList extends React.Component{
 ConnectedList.propTypes = {
     listId: PropTypes.string,
     title: PropTypes.string,
-    handleDrop: PropTypes.string,
-    addTicket: PropTypes.string
+    addTicket: PropTypes.string,
+    removeTicket: PropTypes.string
 };
 
 const List = connect(null, mapDispatchToProps)(ConnectedList);
