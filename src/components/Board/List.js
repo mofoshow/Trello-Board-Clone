@@ -7,9 +7,9 @@ import Tickets from "./Tickets";
 
 const mapDispatchToProps = dispatch => {
     return {
-    
       removeTicket: ticket => dispatch(removeTicket(ticket)),
-      addTicket: ticket => dispatch(addTicket(ticket))
+      addTicket: ticket => dispatch(addTicket(ticket)),
+      removeList: list => dispatch(removeList(list))
     };
   };
 
@@ -31,10 +31,22 @@ class ConnectedList extends React.Component{
         this.props.addTicket({title, listId , id}); 
     }
 
+    handleClick(){
+        let listId = this.props.listId;
+        this.props.removeList({listId});
+    }
+
     render(){
         return(
           <li onDragOver={(e)=>this.onDragOver(e)} onDrop={(e)=>{this.onDrop(e, "wip");}}>
-            <label>{this.props.title}</label>
+            <div className="row">
+              <div className="col-9">
+                <label>{this.props.title}</label>
+              </div>
+              <div className="col-3">
+                <i className="fas fa-ellipsis-h" onClick={() => {this.handleClick();}}></i>
+              </div>
+            </div>
             <Tickets listId={this.props.listId}/>
             <NewTicketInput listId={this.props.listId}/>  
           </li>
@@ -46,7 +58,8 @@ ConnectedList.propTypes = {
     listId: PropTypes.string,
     title: PropTypes.string,
     addTicket: PropTypes.string,
-    removeTicket: PropTypes.string
+    removeTicket: PropTypes.string,
+    removeList: PropTypes.string
 };
 
 const List = connect(null, mapDispatchToProps)(ConnectedList);

@@ -1,5 +1,5 @@
 
-import { ADD_TICKET, ADD_LIST, REMOVE_TICKET } from "../constants/ActionTypes";
+import { ADD_TICKET, ADD_LIST, REMOVE_TICKET, REMOVE_LIST } from "../constants/ActionTypes";
 
 
 const initialState = {
@@ -45,6 +45,14 @@ const rootReducer = (state = initialState, action) => {
                 ...state, lists: [...state.lists, payload]
             };
             return updatedLists;
+
+        case REMOVE_LIST:
+            let removedList = state.lists.filter(list => list.id != action.payload.listId);
+            let updateListOfListsState = {
+                lists: removedList
+            };
+
+            return updateListOfListsState;
         default:
         return state;
 

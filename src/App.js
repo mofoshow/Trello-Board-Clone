@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Lists from "./components/Board/Lists";
 import NewListInput from "./components/Board/NewListInput";
 
-import { addTicket, addList, removeTicket } from "../src/actions/listActions";
+import { addTicket, addList, removeTicket, removeList } from "../src/actions/listActions";
 
 import store from "./store";
 
@@ -11,6 +11,7 @@ window.store = store;
 window.addTicket = addTicket;
 window.removeTicket = removeTicket;
 window.addList = addList;
+window.removeList = removeList;
 
 class App extends Component {
   render() {
