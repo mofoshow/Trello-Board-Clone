@@ -43,10 +43,14 @@ class ConnectedList extends React.Component{
               <div className="col-9">
                 <label>{this.props.title}</label>
               </div>
-              <div className="col-3">
-                <i className="fas fa-ellipsis-h" onClick={() => {this.handleClick();}}></i>
+              <div className="col-3 dropdown">
+                <i className="fas fa-ellipsis-h"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></i>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a className="dropdown-item" onClick= {() => {this.handleClick();}}>Remove List</a>
+                </div>
               </div>
             </div>
+
             <Tickets listId={this.props.listId}/>
             <NewTicketInput listId={this.props.listId}/>  
           </li>
