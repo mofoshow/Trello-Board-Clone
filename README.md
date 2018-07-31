@@ -6,11 +6,12 @@ This project is a work in progress.
 Current features: <br />
 Ability to create multiple lists.<br />
 Ability to create multiple tickets within individual lists.<br />
-Drag and drop tickets from one list to another.
+Ability to remove individual tickets and full lists<br />
+Drag and drop tickets from one list to another.<br />
+Local Storage Implimentation.
 
 Soon to be implimented:<br />
 React Router to allow multiple boards,<br />
-Local Storage Implimentation<br />
 
 
 
