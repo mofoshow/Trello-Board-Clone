@@ -1,7 +1,16 @@
 import { createStore } from "redux";
-import reducer from "./reducers"; // Gets the State from the reducer(s)
+import reducer from "./reducers";
 
-let store = createStore(reducer); // Creates the store from the State received from the reducer(s)
+const persistedState = localStorage.getItem("reduxState") ? JSON.parse(localStorage.getItem("reduxState")) : {};
+
+let store = createStore(
+    reducer,
+    persistedState
+);
+
+store.subscribe(() => {
+    localStorage.setItem("reduxState", JSON.stringify(store.getState()))
+});
 
 export default store;
 
