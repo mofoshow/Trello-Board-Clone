@@ -9,7 +9,7 @@ let store = createStore(
 );
 
 store.subscribe(() => {
-    localStorage.setItem("reduxState", JSON.stringify(store.getState()))
+    localStorage.setItem("reduxState", JSON.stringify(store.getState()));
 });
 
 export default store;
