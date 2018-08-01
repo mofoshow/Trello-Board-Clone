@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 
-import Lists from "./components/Board/Lists";
-import NewListInput from "./components/Board/NewListInput";
+import BoardListIndex from "./components/BoardListView/BoardListIndex";
 
-import { addTicket, addList, removeTicket, removeList } from "../src/actions/listActions";
+import { addBoard,addTicket, addList, removeTicket, removeList } from "../src/actions/listActions";
+import { Switch, Route } from "react-router-dom";
+
+import BoardViewIndex from "./components/Board/BoardViewIndex";
+
 
 import store from "./store";
 
@@ -11,28 +14,19 @@ window.store = store;
 window.addTicket = addTicket;
 window.removeTicket = removeTicket;
 window.addList = addList;
+window.addBoard = addBoard;
 window.removeList = removeList;
+
 
 class App extends Component {
   render() {
     return (
       <div className="row mt-5 text-nowrap">
-
-        <div>
-          <div className="row">
-            <div >
-              <h2>Board Title</h2>
-            </div>
-            <div className="list_input col-7">
-              <NewListInput />
-            </div>
-          </div>
-
-
-          <Lists />
-
-
-        </div>
+        <Switch>
+          <Route exact path='/' component={BoardListIndex}/>
+          <Route path='/board/:boardId' component={BoardViewIndex} />
+        
+        </Switch>
       </div>
     );
   }

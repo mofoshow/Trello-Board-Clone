@@ -38,7 +38,7 @@ class ConnectedList extends React.Component{
 
     render(){
         return(
-          <li onDragOver={(e)=>this.onDragOver(e)} onDrop={(e)=>{this.onDrop(e, "wip");}}>
+          <li>
             <div className="row">
               <div className="col-9">
                 <label>{this.props.title}</label>
@@ -52,7 +52,7 @@ class ConnectedList extends React.Component{
             </div>
 
             <Tickets listId={this.props.listId}/>
-            <NewTicketInput listId={this.props.listId}/>  
+            <NewTicketInput listId={this.props.listId}/> 
           </li>
         );
     }

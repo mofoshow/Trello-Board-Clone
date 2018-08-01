@@ -13,24 +13,36 @@ const mapDispatchToProps = dispatch => {
 };
 
 class ConnectedNewListInput extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            listtitle: ""
+            listtitle: "",
+            boardId: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        
     }
+
+    componentDidUpdate(nextProps){
+        if (this.state.boardId !== nextProps.boardId) {
+            this.setState({boardId : nextProps.boardId});
+        }
+    }
+
+
 
     handleChange(event) {
         this.setState({ [event.target.id]: event.target.value });
     }
 
     handleSubmit(event) {
+        
         event.preventDefault();
         const { listtitle } = this.state;
-        const id = uuidv1();
-        this.props.addList({ listtitle, id });
+        const listId = uuidv1();
+        const boardId = this.state.boardId;
+        this.props.addList({ listtitle, listId, boardId });
         this.setState({ listtitle: "" });
     }
 
@@ -51,13 +63,15 @@ class ConnectedNewListInput extends React.Component {
                 />
             </div>
           </form>
+        
         );
     }
 }
 
 ConnectedNewListInput.propTypes = {
     listId: PropTypes.string,
-    addList: PropTypes.array
+    addList: PropTypes.array,
+    boardId: PropTypes.string
 };
 
 
