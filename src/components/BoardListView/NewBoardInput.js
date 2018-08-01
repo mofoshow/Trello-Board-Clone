@@ -38,7 +38,7 @@ class ConnectedNewBoardInput extends React.Component{
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <input
-                    placeholder="Add a new list"
+                    placeholder="Add a new board"
                     autoComplete="off"
                     type="text"
                     className="form-control"

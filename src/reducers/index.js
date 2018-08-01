@@ -77,7 +77,7 @@ const rootReducer = (state = initialState, action) => {
                 let removedList = board.lists.filter(list => list.listId != action.payload.listId);
                 let updatedBoard = {
                     ...board, lists: removedList
-                }
+                };
                 return updatedBoard;
             });
 

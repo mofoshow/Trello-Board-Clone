@@ -1,8 +1,7 @@
 import { createStore } from "redux";
 import reducer from "./reducers";
 
-const persistedState = localStorage.getItem("reduxState") ? JSON.parse(localStorage.getItem("reduxState")) : {boards: [
-]};
+const persistedState = localStorage.getItem("reduxState") ? JSON.parse(localStorage.getItem("reduxState")) : {boards: []};
 
 let store = createStore(
     reducer,
