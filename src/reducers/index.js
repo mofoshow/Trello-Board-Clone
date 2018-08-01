@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
-    
+
     switch (action.type) {
         case ADD_TICKET:
             const updatedItems = state.boards.map(board => {
@@ -16,18 +16,18 @@ const rootReducer = (state = initialState, action) => {
                     if (list.listId === action.payload.listId) {
                         return {
                             ...list,
-                            tickets: [...list.tickets, {ticketTitle: action.payload.title, ticketId: action.payload.id }]
+                            tickets: [...list.tickets, { ticketTitle: action.payload.title, ticketId: action.payload.id }]
                         };
                     }
                     return list;
-                    
+
                 });
                 return {
-                    ...board, 
-                    lists: [ ...updatedTicketList] 
+                    ...board,
+                    lists: [...updatedTicketList]
                 };
             });
-            const updatedStateAfterAddingList = { ...state, boards: [...updatedItems]};
+            const updatedStateAfterAddingList = { ...state, boards: [...updatedItems] };
 
             return updatedStateAfterAddingList;
 
@@ -35,12 +35,12 @@ const rootReducer = (state = initialState, action) => {
             let removeTicket = state.boards.map(board => {
                 let listWithUpdatedTickets = board.lists.map(list => {
                     let ticketsToStay = list.tickets.filter(ticket => ticket.ticketId !== action.payload.id);
-                        let newListWithTicketRemoved = {
-                            ...list, tickets: ticketsToStay
-                        };
+                    let newListWithTicketRemoved = {
+                        ...list, tickets: ticketsToStay
+                    };
                     return newListWithTicketRemoved;
                 });
-                return {...board, lists: listWithUpdatedTickets}
+                return { ...board, lists: listWithUpdatedTickets };
             });
 
             let newState = {
@@ -52,35 +52,43 @@ const rootReducer = (state = initialState, action) => {
 
         case ADD_LIST:
             const updatedLists = state.boards.map(board => {
-                if (board.id === action.payload.boardId){
+                if (board.id === action.payload.boardId) {
                     return {
                         ...board,
-                        lists: [...board.lists, { listTitle: action.payload.listtitle, listId: action.payload.listId, tickets: []}]
+                        lists: [...board.lists, { listTitle: action.payload.listtitle, listId: action.payload.listId, tickets: [] }]
                     };
                 }
                 return board;
             });
-            const newBoardState = { ...state, boards: [...updatedLists]};
+            const newBoardState = { ...state, boards: [...updatedLists] };
 
             return newBoardState;
-        
+
         case ADD_BOARD:
             const boardsPayload = { ...action.payload, lists: [] };
             const updatedBoardLists = {
                 ...state, boards: [...state.boards, boardsPayload]
             };
-        return updatedBoardLists;
+            return updatedBoardLists;
 
-        // case REMOVE_LIST:
-        // console.log("remove list ");
-        //     let removedList = state.lists.filter(list => list.id != action.payload.listId);
-        //     let updateListOfListsState = {
-        //         lists: removedList
-        //     };
+        case REMOVE_LIST:
 
-        //     return updateListOfListsState;
+            let boardWithRemovedList = state.boards.map(board => {
+                let removedList = board.lists.filter(list => list.listId != action.payload.listId);
+                let updatedBoard = {
+                    ...board, lists: removedList
+                }
+                return updatedBoard;
+            });
+
+            let updatedBoardState = {
+                ...state,
+                boards: boardWithRemovedList
+            };
+
+            return updatedBoardState;
         default:
-        return state;
+            return state;
 
     }
 };
