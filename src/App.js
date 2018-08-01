@@ -25,7 +25,6 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={BoardListIndex}/>
           <Route path='/board/:boardId' component={BoardViewIndex} />
-        
         </Switch>
       </div>
     );
