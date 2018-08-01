@@ -26,8 +26,7 @@ class ConnectedList extends React.Component{
         let id = event.dataTransfer.getData("id");
         let title = event.dataTransfer.getData("title");
         const listId = this.props.listId;
-        
-        this.props.removeTicket({ id});
+        this.props.removeTicket({id});
         this.props.addTicket({title, listId , id}); 
     }
 
@@ -38,7 +37,7 @@ class ConnectedList extends React.Component{
 
     render(){
         return(
-          <li>
+          <li onDragOver={(e)=>this.onDragOver(e)} onDrop={(e)=>{this.onDrop(e, "wip");}}>
             <div className="row">
               <div className="col-9">
                 <label>{this.props.title}</label>

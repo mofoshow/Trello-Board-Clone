@@ -31,21 +31,24 @@ const rootReducer = (state = initialState, action) => {
 
             return updatedStateAfterAddingList;
 
-        // case REMOVE_TICKET:
-        // console.log("remove ticket ");
-        //     let removeTicket = state.lists.map(list => {
-        //         let ticketsToStay = list.tickets.filter(ticket => ticket.ticketId !== action.payload.id);
-        //         let newListWithTicketRemoved = {
-        //             ...list, tickets: ticketsToStay
-        //         };
-        //         return newListWithTicketRemoved;
-        //     });
+        case REMOVE_TICKET:
+            let removeTicket = state.boards.map(board => {
+                let listWithUpdatedTickets = board.lists.map(list => {
+                    let ticketsToStay = list.tickets.filter(ticket => ticket.ticketId !== action.payload.id);
+                        let newListWithTicketRemoved = {
+                            ...list, tickets: ticketsToStay
+                        };
+                    return newListWithTicketRemoved;
+                });
+                return {...board, lists: listWithUpdatedTickets}
+            });
 
-        //     let newState = {
-        //         ...state, lists: removeTicket
-        //     };
+            let newState = {
+                ...state, boards: removeTicket
+            };
 
-        //     return newState;
+
+            return newState;
 
         case ADD_LIST:
             const updatedLists = state.boards.map(board => {
