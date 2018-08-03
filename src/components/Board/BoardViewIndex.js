@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import NewListInput from "./NewListInput";
 import Lists from "./Lists";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 
 const mapStateToProps = state => {
    
@@ -32,9 +34,10 @@ class ConnectedBoardViewIndex extends Component {
     render() {
         return (
           <div className="row mt-5 text-nowrap">
+            <Link to="/" className="back-btn">Back</Link>
             <div>
               <div className="row">
-                <div >
+                <div>
                   <h2>{this.state.boardTitle}</h2>
                 </div>
                 <div className="list_input col-7">

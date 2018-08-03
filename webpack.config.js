@@ -11,9 +11,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss/,
-        loader: ExtractTextPlugin.extract(["css-loader", "sass-loader"])
-      },
+        test: /\.scss$/,
+        use: [
+            "style-loader", // creates style nodes from JS strings
+            "css-loader", // translates CSS into CommonJS
+            "sass-loader" // compiles Sass to CSS, using Node Sass by default
+        ]
+    },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -35,7 +39,6 @@ module.exports = {
     watchContentBase: true
   },
   plugins: [
-    new ExtractTextPlugin("bundle.css"),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")
     }),
