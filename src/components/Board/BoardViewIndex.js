@@ -33,7 +33,7 @@ class ConnectedBoardViewIndex extends Component {
 
     render() {
         return (
-          <div className="row mt-5 text-nowrap">
+          <div className="container mt-5 text-nowrap">
             <Link to="/" className="back-btn">Back</Link>
             <div>
               <div className="row">

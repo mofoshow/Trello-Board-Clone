@@ -6,21 +6,17 @@ import Boards from "./Boards";
 class BoardListIndex extends Component {
   render() {
     return (
-      <div className="row mt-5 text-nowrap">
-
-        <div>
-          <div className="row">
-            <div >
-              <h2>Boards</h2>
-            </div>
-            <div className="list_input col-7">
-              <NewBoardInput />
-            </div>
+      <div className="container">
+        <div >
+          <h2>Boards</h2>
+        </div>
+        <div className="list_input col-7">
+          <NewBoardInput />
+        </div>
+        <div className="row">
+          <div className="col-12">
+            <Boards />
           </div>
-
-          <Boards />
-
-
         </div>
       </div>
     );

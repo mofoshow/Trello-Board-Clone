@@ -21,11 +21,11 @@ window.removeList = removeList;
 class App extends Component {
   render() {
     return (
-      <div className="row mt-5 text-nowrap">
+      <div className=" mt-5 text-nowrap">
         <Switch>
           <Route exact path='/' component={BoardListIndex}/>
           <Route path='/board/:boardId' component={BoardViewIndex} />
-        
+          <Route component={BoardListIndex} />
         </Switch>
       </div>
     );

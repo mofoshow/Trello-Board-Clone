@@ -1,28 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+
+
+import BoardLink from "./BoardLink";
+
 
 const mapStateToProps = state => {
-    return { boards: state.boards };
+  return { boards: state.boards };
 };
 
 
-const ConnectedBoards = ({ boards }) => (
-  <ul className="list-group-flush list-inline">
-    {
-        boards.map(board => (
-          <li className="list-inline-item align-top mr-4 p-3" key={board.id}>
-            <Link to={{ pathname: "/board/" + board.id }}>{board.boardtitle}</Link>
-          </li>
 
-        ))
+const ConnectedBoards = ({ boards }) => (
+
+  <div className="row">
+    {
+      boards.map((board, index) => (
+        <div className="col-12 col-md-6 mb-3" key={board.id}>
+          <BoardLink number={index} id={board.id} boardtitle={board.boardtitle}/>
+        </div>
+
+
+      ))
     }
-  </ul>
+  </div>
 );
 
-    ConnectedBoards.propTypes = {
-    boards: PropTypes.array
+ConnectedBoards.propTypes = {
+  boards: PropTypes.array
 };
 
 const Boards = connect(mapStateToProps)(ConnectedBoards);
